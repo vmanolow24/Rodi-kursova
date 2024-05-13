@@ -79,23 +79,23 @@ def login_form():
     login_window.geometry("300x200")
     login_window.title("Login Form")
 
-    login_frame = tk.Frame(login_window, padx=30, pady = 30)
-    login_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+    login_form = tk.Frame(login_window, padx=30, pady = 30)
+    login_form.pack(padx=20,fill=tk.BOTH, expand=True)
 
     login_window.configure(background="dark blue")
 
-    login_username_label = tk.Label(login_frame, text="Username")
-    login_username_label.pack()
-    login_username_entry = tk.Entry(login_frame)
-    login_username_entry.pack()
+    username_label = tk.Label(login_form, text="Username")
+    username_label.grid(row=0, column=0, sticky=tk.W)
+    username_entry = tk.Entry(login_form)
+    username_entry.grid(row=0, column=1)
 
-    login_password_label = tk.Label(login_frame, text="Password")
-    login_password_label.pack()
-    login_password_entry = tk.Entry(login_frame, show="*")
-    login_password_entry.pack()
+    password_label = tk.Label(login_form, text="Password")
+    password_label.grid(row=1, column=0, sticky=tk.W)
+    password_entry = tk.Entry(login_form, show="*")
+    password_entry.grid(row=1, column=1)
 
-    login_button = tk.Button(login_frame, text="Login", command= lambda:login(login_username_entry, login_password_entry))
-    login_button.pack()
+    login_button = tk.Button(login_form, text="Login", command=lambda: login(username_entry, password_entry))
+    login_button.grid(row=2, column=0, columnspan=2)
 
 def login(username_entry, password_entry):
     username = username_entry.get()
@@ -120,6 +120,89 @@ def login(username_entry, password_entry):
     else:
         messagebox.showerror("Error", "Username and password are required")
 
+def men_page():
+    men_window = tk.Toplevel(main_window)
+    men_window.geometry("600x400")
+    men_window.title("Men's Products")
+
+    men_frame = tk.Frame(men_window, padx=30, pady = 30)
+    men_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    men_window.configure(background="dark blue")
+
+    label = tk.Label(men_frame, text="Men's Products", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
+
+def women_page():
+    women_window = tk.Toplevel(main_window)
+    women_window.geometry("600x400")
+    women_window.title("Women's Products")
+
+    women_frame = tk.Frame(women_window, padx=30, pady = 30)
+    women_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    women_window.configure(background="dark blue")
+
+    label = tk.Label(women_frame, text="Women's Products", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
+
+def kids_page():
+    kids_window = tk.Toplevel(main_window)
+    kids_window.geometry("600x400")
+    kids_window.title("Kids's Products")
+
+    kids_frame = tk.Frame(kids_window, padx=30, pady = 30)
+    kids_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    kids_window.configure(background="dark blue")
+
+    label = tk.Label(kids_frame, text="Kids's Products", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
+
+def nutritions_page():
+    nutritions_window = tk.Toplevel(main_window)
+    nutritions_window.geometry("600x400")
+    nutritions_window.title("Nutritions")
+
+    nutritions_frame = tk.Frame(nutritions_window, padx=30, pady = 30)
+    nutritions_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    nutritions_window.configure(background="dark blue")
+
+    label = tk.Label(nutritions_frame, text="Nutritions", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
+
+def accessories_page():
+    accessories_window = tk.Toplevel(main_window)
+    accessories_window.geometry("600x400")
+    accessories_window.title("Accessories")
+
+    accessories_frame = tk.Frame(accessories_window, padx=30, pady = 30)
+    accessories_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    accessories_window.configure(background="dark blue")
+
+    label = tk.Label(accessories_frame, text="Accessories", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
+
+def cart_page():
+    cart_window = tk.Toplevel(main_window)
+    cart_window.geometry("600x400")
+    cart_window.title("Cart")
+
+    cart_frame = tk.Frame(cart_window, padx=30, pady = 30)
+    cart_frame.pack(padx=20,fill=tk.BOTH, expand=True)
+
+    cart_window.configure(background="dark blue")
+
+    label = tk.Label(cart_frame, text="Cart", font=("Arial", 20))
+    label.grid(row=0, column=0, columnspan=2, pady=10)
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.TOP)
 
 def main_page():
     global main_window
@@ -133,9 +216,27 @@ def main_page():
     main_window.configure(background="dark blue")
 
     label = tk.Label(main_frame, text="Hello, Its time for sport!", font=("Arial", 20))
-    label.grid(row=0, column=0, columnspan=2, pady=10)
-    label.place(relx = 0.5, rely = 0.5, anchor = TOP)
-    label = tk.Label(main_frame, text="Hello, Its time for sport!", font=("Arial", 20))
+    label.place(relx = 0.5, rely = 0.5, anchor = tk.CENTER)
+
+    men_button = tk.Button(main_frame, text="Men", command=men_page)
+    men_button.place(relx = 0.2, rely = 0.6, anchor = tk.CENTER)
+
+    women_button = tk.Button(main_frame, text="Women", command=women_page)
+    women_button.place(relx = 0.4, rely = 0.6, anchor = tk.CENTER)
+
+    kids_button = tk.Button(main_frame, text="Kids", command=kids_page)
+    kids_button.place(relx = 0.6, rely = 0.6, anchor = tk.CENTER)
+
+    nutritions_button = tk.Button(main_frame, text="Nutritions", command=nutritions_page)
+    nutritions_button.place(relx = 0.8, rely = 0.6, anchor = tk.CENTER)
+
+    accessories_button = tk.Button(main_frame, text="Accessories", command=accessories_page)
+    accessories_button.place(relx = 0.5, rely = 0.7, anchor = tk.CENTER)
+
+    cart_button = tk.Button(main_frame, text="Cart", command=cart_page)
+    cart_button.place(relx = 0.5, rely = 0.8, anchor = tk.CENTER)
+
+    main_window.mainloop()
 
 landing_page()
 landing_window.mainloop()
